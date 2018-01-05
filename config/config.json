@@ -1,0 +1,3 @@
+{
+    "mongo" : "mongodb://pa_admin:pa%402017@172.16.60.48:27017/node-test?authSource=partner-app"
+}
