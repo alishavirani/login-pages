@@ -13,7 +13,9 @@ router.post('/', (req, res) => {
         }
         if(!result || !result.length) {
             console.log("Invalid result");
-            res.render('home');
+            res.render('home', {
+                message: "Invalid credentials"
+            });
            
             return;
         }

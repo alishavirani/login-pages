@@ -21,6 +21,9 @@
                         <input type="submit" value="Login" id="submitbutton"/>
                     </form>
                 </div>  
+                {{#if message}}
+                    <h1>Invalid credentials</h1>
+                {{/if}}
         </div>
         <script src="/js/login.js"></script>
     </body>
