@@ -31,6 +31,22 @@ MongoClient.connect(connString, (err, client) => {
     }, (err) => {
         console.log('Error in fetching', err);
     });
+
+    // db.collection('Login').findOneAndDelete({email:'abc@gmail.com'}).then((doc) => {
+    //     console.log(JSON.stringify(doc, undefined, 2));
+    // }, (err) => {
+    //     console.log('Error in deleting', err);
+    // });
+    // db.collection('Login').findOneAndDelete({email:'xyz@gmail.com'}).then((doc) => {
+    //     console.log(JSON.stringify(doc, undefined, 2));
+    // }, (err) => {
+    //     console.log('Error in deleting', err);
+    // });
+    // db.collection('Login').findOneAndDelete({email:'pqr@gmail.com'}).then((doc) => {
+    //     console.log(JSON.stringify(doc, undefined, 2));
+    // }, (err) => {
+    //     console.log('Error in deleting', err);
+    // });
     //db.close();
 });
 

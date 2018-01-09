@@ -11,14 +11,20 @@ router.post('/', (req, res) => {
             res.render('home');
             return;
         }
+        if(!result || !result.length) {
+            console.log("Invalid result");
+            res.render('home');
+           
+            return;
+        }
         
         console.log('success in api', result);
 
-        let userName = req.body.email;
-        console.log(userName);
+        let userName = result[0].email;
+        console.log(result[0].email);
 
         res.render('success', {
-            userName
+           userName
         });
         return;
     });

@@ -18,7 +18,7 @@ module.exports.getConnection = function getConnection() {
 module.exports.getAll = function getAll(schema, query, fields, options, callbackvalue) {
     console.log('Query in db wrapper', query);
     var objmodel = db.model(schema.options.collection, schema)
-    objmodel.find(query, fields, options).lean().exec(function(err, result) {
+    objmodel.find(query,function(err, result) {
         console.log("printing result in wrapper",result);
       callbackvalue(err, result);
       return;
