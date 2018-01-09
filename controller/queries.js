@@ -7,6 +7,7 @@ db.getConnection();
 
 module.exports.getUsers = (emailid, pw, callback) => {
     console.log("Got params in controller =>", emailid, pw);
+    
     db.getAll(User, {
         email: emailid,
         password: pw
@@ -16,11 +17,7 @@ module.exports.getUsers = (emailid, pw, callback) => {
             callback(err, null);
             return;
         }
-        console.log("USER=>", user)
-        if(user.length) {
-            callback(null, user);
-            return;
-        } 
+        console.log("USER=>", user);
         callback(null, user);
         return;
     });
