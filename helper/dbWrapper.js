@@ -19,6 +19,7 @@ module.exports.getAll = function getAll(schema, query, fields, options, callback
     console.log('Query in db wrapper', query);
     var objmodel = db.model(schema.options.collection, schema)
     objmodel.find(query, fields, options).lean().exec(function(err, result) {
+        console.log("printing result in wrapper",result);
       callbackvalue(err, result);
       return;
     });

@@ -10,21 +10,28 @@ MongoClient.connect(connString, (err, client) => {
     const db = client.db("node-test");
    
 
-    db.collection('Login').insertMany([{
-        email:'abc@gmail.com',
-        password: 'abc123'
-    }, {
-        email:'xyz@gmail.com',
-        password: 'xyz123'
-    }, {
-        email:'pqr@gmail.com',
-        password: 'pqr123'
-    }], (err, res) => {
-        if(err) {
-            return console.log('Unable to insert doc');
-        }
-        console.log((JSON.stringify(res.ops, undefined, 2)));
+    // db.collection('Login').insertMany([{
+    //     email:'abc@gmail.com',
+    //     password: 'abc123'
+    // }, {
+    //     email:'xyz@gmail.com',
+    //     password: 'xyz123'
+    // }, {
+    //     email:'pqr@gmail.com',
+    //     password: 'pqr123'
+    // }], (err, res) => {
+    //     if(err) {
+    //         return console.log('Unable to insert doc');
+    //     }
+    //     console.log((JSON.stringify(res.ops, undefined, 2)));
+    // });
+
+    db.collection('Login').find().toArray().then((docs) => {
+        console.log(JSON.stringify(docs, undefined, 2));
+    }, (err) => {
+        console.log('Error in fetching', err);
     });
     //db.close();
 });
+
 

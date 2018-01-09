@@ -18,10 +18,10 @@ module.exports.getUsers = (emailid, pw, callback) => {
         }
         console.log("USER=>", user)
         if(user.length) {
-            callback(null, true);
-            return user;
+            callback(null, user);
+            return;
         } 
-        callback(null, false);
+        callback(null, user);
         return;
     });
 

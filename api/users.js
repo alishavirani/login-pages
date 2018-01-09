@@ -1,8 +1,6 @@
 const express = require('express');
-
-const queries = require('./../controller/queries');
-
 var router = express.Router();
+const queries = require('./../controller/queries');
 
 
 router.post('/', (req, res) => {
@@ -13,10 +11,17 @@ router.post('/', (req, res) => {
             res.render('home');
             return;
         }
+        
         console.log('success in api', result);
-        res.render('success');
+
+        let userName = req.body.email;
+        console.log(userName);
+
+        res.render('success', {
+            userName
+        });
         return;
-    })
+    });
 });
 
 module.exports = router;
