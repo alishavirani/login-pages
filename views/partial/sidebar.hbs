@@ -1,0 +1,44 @@
+<div class="sidebar" data-color="purple" data-image="/img/sidebar-5.jpg">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    {{email}}
+                </a>
+            </div>
+
+            <ul class="nav">
+                 {{#ifCond category "==" "Admin"}}
+                <li {{#ifCond location.pathname "==" "/dashboard" }} class="active" {{/ifCond}}  >
+                    <a href="/dashboard">
+                        <i class="pe-7s-graph"></i>
+                        <p>Reports</p>
+                    </a>
+                </li>
+               {{/ifCond}}
+                <li>
+                    <a href="/profile">
+                        <i class="pe-7s-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                {{#ifCond category "!=" "Employee"}}
+                <li>
+                    <a href="/table">
+                        <i class="pe-7s-note2"></i>
+                        <p>Table List</p>
+                    </a>
+                </li>
+                {{/ifCond}}
+                
+                
+            </ul>
+    	</div>
+    </div>

@@ -27,7 +27,7 @@ module.exports.getAll = function getAll(schema, query, fields, options, callback
     // });
 
     objmodel.findOne(query, function(err, result) {
-        console.log("result of abc@gmail.com",result);
+        console.log("result of abc@gmail.com",typeof result, result);
         callbackvalue(err, result);
         return;
     })

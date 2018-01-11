@@ -4,12 +4,16 @@ const express = require('express');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('home');
+    var userData = {
+        email: req.session.email,
+        category: req.session.category
+     }
+    res.render('home', userData);
 });
 
-// router.post('/users', (req, res) => {
-//     console.log(req.body);
-//     res.render('success')
-// })
+router.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.render('home');
+});
 
 module.exports = router;

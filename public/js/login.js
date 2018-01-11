@@ -1,16 +1,48 @@
-function validate() {
-    var email = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if(!email) {
-        alert('Enter email');
-        return false;
-    }
-    if(!password) {
-        alert('Enter password');
-        return false;
-    }
+$(document).ready(function () {
+    $("#submitbutton").on("click", function () {
 
-    $("#form_id").submit(); 
+        if (!$("#username").val()) {
+            alert('Enter email');
+            return false;
+        }
+        if (!$("#password").val()) {
+            alert('Enter password');
+            return false;
+        }
+        var data = {
+            email: $("#username").val(),
+            password: $("#password").val()
+        }
+        $.ajax({
+            url: "/authenticate",
+            type: "post",
+            dataType: "json",
+            data: data,
+            success: function (res) {
+                if (res.category === "Admin") {
+                    location.replace("/dashboard");
+                }
+                else if(res.category === "Team Leader") {
+                    location.replace("/table");
+                } 
+                else {
+                    location.replace("/profile");
+                }
+            },
+            error: function (err) {
+                console.log("ERROR => ", err);
+                location.reload();
+            }
+        });
+    })
+
+})
+
+function validate() {
+
+   
+
+    $("#form_id").submit();
     // var formArray = $("#form_id").serializeArray(); 
 
     // formArray.forEach( function(obj) {
@@ -22,41 +54,41 @@ function validate() {
     // });
 }
 
-    // alert(formArray);
+// alert(formArray);
 
-    // var length = formArray.length;
-    // alert(length);
-    // if(length<2) {
-    //     alert('Enter your credentials');
-    //     return;
-    // }
+// var length = formArray.length;
+// alert(length);
+// if(length<2) {
+//     alert('Enter your credentials');
+//     return;
+// }
 
-    
 
-    // formArray.forEach(function (arrayElem) {
-    //     if(arrayElem === null) {
-    //         alert("Please enter your credentials");
-    //         return;
-    //     }
-        
-    // })
-    //var email = formArray[0].value;
-    //alert(email);
 
-     
-    // console.log(formArray);
-    // return email;
+// formArray.forEach(function (arrayElem) {
+//     if(arrayElem === null) {
+//         alert("Please enter your credentials");
+//         return;
+//     }
+
+// })
+//var email = formArray[0].value;
+//alert(email);
+
+
+// console.log(formArray);
+// return email;
 //     console.log('email', email, 'password', password);
-    
+
 //    if ( email == " " && password == "") {
 //         window.alert ("Please enter your username and password");
 //         return false;
 //     }
 //     else {
-        
+
 //         $('#form_id').submit();
-                         
-        
+
+
 //     }
-    
+
 //}

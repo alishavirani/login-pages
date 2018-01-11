@@ -30,9 +30,18 @@ MongoClient.connect(connString, (err, client) => {
         console.log(JSON.stringify(docs, undefined, 2));
     }, (err) => {
         console.log('Error in fetching', err);
+    
     });
 
-    // db.collection('Login').findOneAndDelete({email:'abc@gmail.com'}).then((doc) => {
+    // db.collection('Login').findOneAndDelete({
+    //     _id: new ObjectID('5a57162c0957f0733af66e34')
+    // }).then((doc) => {
+    //     console.log(JSON.stringify(doc, undefined, 2));
+    // }, (err) => {
+    //     console.log('Error in updation', err);
+    // });
+
+    // db.collection('Login').findOneAndDelete({email:'pqr@gmail.com'}).then((doc) => {
     //     console.log(JSON.stringify(doc, undefined, 2));
     // }, (err) => {
     //     console.log('Error in deleting', err);
@@ -48,6 +57,40 @@ MongoClient.connect(connString, (err, client) => {
     //     console.log('Error in deleting', err);
     // });
     //db.close();
+
+    // db.collection('Login').findOneAndUpdate({email: 'abc@gmail.com'}, {
+    //     $set: {
+    //         category: "Admin"
+    //     }
+    // }, {
+    //     returnOrignal: true
+    // }).then((doc) => {
+    //     console.log(JSON.stringify(doc, undefined, 2));
+    // }, (err) => {
+    //     console.log('Record could not be updated', err);
+    // });
+
+    // db.collection('Login').findOneAndUpdate({email: 'pqr@gmail.com'}, {
+    //     $set: {
+    //         category: "Tribe Leader"
+    //     }
+    // }, {
+    //     returnOrignal: true
+    // }).then((doc) => {
+    //     console.log(JSON.stringify(doc, undefined, 2));
+    // }, (err) => {
+    //     console.log('Record could not be updated', err);
+    // });
+
+    // db.collection('Login').findOneAndUpdate({email: 'xyz@gmail.com'}, {
+    //     $set: {
+    //         category: "Employee"
+    //     }
+    // }, {
+    //     returnOrignal: true
+    // }).then((doc) => {
+    //     console.log(JSON.stringify(doc, undefined, 2));
+    // }, (err) => {
+    //     console.log('Record could not be updated', err);
+    // });
 });
-
-

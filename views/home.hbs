@@ -13,12 +13,12 @@
     <body>
             <div class="container">
                 <div class="main">
-                    <form id="form_id" method="POST" action="/users" name="myform">
+                    <form id="form_id" method="POST" action="/authenticate" onsubmit = "return false" name="myform">
                         <label>User Name :</label>
                         <input type="text" name="email" id="username" required/>
                         <label>Password :</label>
                         <input type="password" name="password" id="password" required/>
-                        <input type="submit" value="Login" id="submitbutton"/>
+                        <input type="button" value="Login" id="submitbutton"/>
                     </form>
                 </div>  
                 {{#if message}}
